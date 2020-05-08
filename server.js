@@ -48,7 +48,7 @@ app.post("/backend/business", (req, res) => {
   })
 });
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
     console.log(`HUMAN SERVER IS UP AND RUNNING AT PORT ${port}`)
 });
