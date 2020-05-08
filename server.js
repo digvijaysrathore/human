@@ -7,7 +7,7 @@ const meaningCloudApiKey = "f4be78fe9ca8f65345144ffc9305bce2"
 app.use(bodyParser.json());
 
 app.post("/backend/technology", (req, res) => {
-  fetch(`http://newsapi.org/v2/top-headlines?category=technology&apiKey=${newapiOrgKey}`)
+  fetch(`http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=${newapiOrgKey}`)
   .then(res => res.json())
   .then((json) => {
     const url = json.articles[0].url
@@ -21,7 +21,7 @@ app.post("/backend/technology", (req, res) => {
 });
 
 app.post("/backend/science", (req, res) => {
-  fetch(`http://newsapi.org/v2/top-headlines?category=science&apiKey=${newapiOrgKey}`)
+  fetch(`http://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=${newapiOrgKey}`)
   .then(res => res.json())
   .then((json) => {
     const url = json.articles[0].url
@@ -35,7 +35,7 @@ app.post("/backend/science", (req, res) => {
 });
 
 app.post("/backend/business", (req, res) => {
-  fetch(`http://newsapi.org/v2/top-headlines?category=business&apiKey=${newapiOrgKey}`)
+  fetch(`http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${newapiOrgKey}`)
   .then(res => res.json())
   .then((json) => {
     const url = json.articles[0].url
