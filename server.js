@@ -14,7 +14,7 @@ app.post("/backend/technology", (req, res) => {
     .then(res => res.json())
     .then((summary) => {
       console.log("NEWS GENERATION SUCCESSFUL")
-      return res.send(summary)
+      return res.send(summary.summary)
     })
   })
 });
@@ -28,7 +28,7 @@ app.post("/backend/science", (req, res) => {
     .then(res => res.json())
     .then((summary) => {
       console.log("NEWS GENERATION SUCCESSFUL")
-      return res.send(summary)
+      return res.send(summary.summary)
     })
   })
 });
@@ -42,7 +42,7 @@ app.post("/backend/business", (req, res) => {
     .then(res => res.json())
     .then((summary) => {
       console.log("NEWS GENERATION SUCCESSFUL")
-      return res.send(summary)
+      return res.send(summary.summary)
     })
   })
 });
