@@ -1,10 +1,12 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const fetch = require("node-fetch");
-const newapiOrgKey = `${process.env.NEWSAPI}`
-const meaningCloudApiKey = `${process.env.MC}`
-const token = `${process.env.TELEGRAM}`
+const newapiOrgKey = process.env.NEWSAPI
+const meaningCloudApiKey = process.env.MC
+const token = process.env.TELEGRAM
 const Telegraf = require('telegraf')
 app.use(bodyParser.json());
 
