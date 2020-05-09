@@ -4,15 +4,11 @@ const bodyParser = require('body-parser');
 const fetch = require("node-fetch");
 const newapiOrgKey = "1df02f86f8594f81bf88d129c3f2094f"
 const meaningCloudApiKey = "f4be78fe9ca8f65345144ffc9305bce2"
-const TelegramBot = require("node-telegram-bot-api")
+const token = "1239168966:AAFnwpTimA_6DHHo9P6y-z3VIachnu6gKQo";
+const Telegraf = require('telegraf')
 app.use(bodyParser.json());
 
-const token = "1239168966:AAFnwpTimA_6DHHo9P6y-z3VIachnu6gKQo";
-
-
-const Telegraf = require('telegraf') // import telegram lib
-
-const bot = new Telegraf("1239168966:AAFnwpTimA_6DHHo9P6y-z3VIachnu6gKQo") // get the token from envirenment variable
+const bot = new Telegraf("1239168966:AAFnwpTimA_6DHHo9P6y-z3VIachnu6gKQo")
 bot.start((ctx) => ctx.reply("Hello, I am Aller (crafted by Digvijay). News services have evolved a lot.  It's so boring to sit down and read lengthy news articles. I perform text analysis to deliver crisp news straight to your inbox. Explore and stay updated. 1. Text me 'technology' for tech genre. 2. 'business' for some busines news. 3. and 'science' for some scientific dose. /help for recieving these guidelines again, anytime."))
 bot.hears('/help', (ctx) => {
   ctx.reply("Heyya, I think you are stuck somewhere. News services have evolved a lot.  It's so boring to sit down and read lengthy news articles. I perform text analysis to deliver crisp news straight to your inbox. Explore and stay updated. 1. Text me 'technology' for tech genre. 2. 'business' for some busines news. 3. and 'science' for some scientific dose. /help for recieving these guidelines again, anytime. Tweet about any issue, Twitter at novadigvijay.")
