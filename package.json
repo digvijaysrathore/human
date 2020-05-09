@@ -13,6 +13,8 @@
     "express": "^4.17.1",
     "follow-redirects": "^1.11.0",
     "node-fetch": "^2.6.0",
-    "nodemon": "^2.0.3"
+    "node-telegram-bot-api": "^0.40.0",
+    "nodemon": "^2.0.3",
+    "telegraf": "^3.38.0"
   }
 }
