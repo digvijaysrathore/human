@@ -2,16 +2,19 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const fetch = require("node-fetch");
-const newapiOrgKey = "1df02f86f8594f81bf88d129c3f2094f"
-const meaningCloudApiKey = "f4be78fe9ca8f65345144ffc9305bce2"
-const token = "1239168966:AAFnwpTimA_6DHHo9P6y-z3VIachnu6gKQo";
+const newapiOrgKey = `${process.env.NEWSAPI}`
+const meaningCloudApiKey = `${process.env.MC}`
+const token = `${process.env.TELEGRAM}`
 const Telegraf = require('telegraf')
 app.use(bodyParser.json());
 
 const bot = new Telegraf("1239168966:AAFnwpTimA_6DHHo9P6y-z3VIachnu6gKQo")
 bot.start((ctx) => ctx.reply("Hello, I am Aller (crafted by Digvijay). News services have evolved a lot.  It's so boring to sit down and read lengthy news articles. I perform text analysis to deliver crisp news straight to your inbox. Explore and stay updated. 1. Text me 'technology' for tech genre. 2. 'business' for some busines news. 3. and 'science' for some scientific dose. /help for recieving these guidelines again, anytime."))
 bot.hears('/help', (ctx) => {
-  ctx.reply("Heyya, I think you are stuck somewhere. News services have evolved a lot.  It's so boring to sit down and read lengthy news articles. I perform text analysis to deliver crisp news straight to your inbox. Explore and stay updated. 1. Text me 'technology' for tech genre. 2. 'business' for some busines news. 3. and 'science' for some scientific dose. /help for recieving these guidelines again, anytime. Tweet about any issue, Twitter at novadigvijay.")
+  ctx.reply("Heyya, I think you are stuck somewhere. I perform text analysis to deliver crisp news straight to your inbox. Explore and stay updated. 1. Text me 'technology' for tech genre. 2. 'business' for some busines news. 3. and 'science' for some scientific dose. /help for recieving these guidelines again, anytime. /feedback to give me a feedback. Tweet about any issue, twitter at novadigvijay.")
+})
+bot.hears('/feedback', (ctx) => {
+  ctx.reply("You can give me a feedback by leaving a tweet at novadigvijay (remember: Twitter at novadigvijay). I am waiting for it!")
 })
 bot.hears('technology', (ctx, req, res) => { 
   fetch(`http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=${newapiOrgKey}`)
