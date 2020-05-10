@@ -18,7 +18,7 @@ bot.hears('/help', (ctx) => {
 bot.hears('/feedback', (ctx) => {
   ctx.reply("You can give me a feedback by leaving a tweet at novadigvijay (remember: Twitter at novadigvijay). I am waiting for it!")
 })
-bot.hears('technology'||'Technology', (ctx, req, res) => { 
+bot.hears('technology', (ctx, req, res) => { 
   fetch(`http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=${newapiOrgKey}`)
   .then(res => res.json())
   .then((json) => {
@@ -34,7 +34,23 @@ bot.hears('technology'||'Technology', (ctx, req, res) => {
   })
 })
 
-bot.hears('Business'||'business', (ctx, req, res) => { 
+bot.hears('Technology', (ctx, req, res) => { 
+  fetch(`http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=${newapiOrgKey}`)
+  .then(res => res.json())
+  .then((json) => {
+    const url = json.articles[0].url
+    fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&url=${url}&sentences=3`, { method: 'POST'})
+    .then(res => res.json())
+    .then((summary) => {
+      console.log("NEWS GENERATION SUCCESSFUL")
+      ctx.reply(json.articles[0].title)
+      ctx.reply(summary.summary)
+      ctx.reply(json.articles[0].url)
+    })
+  })
+})
+
+bot.hears('business', (ctx, req, res) => { 
   fetch(`http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${newapiOrgKey}`)
   .then(res => res.json())
   .then((json) => {
@@ -50,7 +66,23 @@ bot.hears('Business'||'business', (ctx, req, res) => {
   })
 })
 
-bot.hears('science'||'Science', (ctx, req, res) => { 
+bot.hears('Business', (ctx, req, res) => { 
+  fetch(`http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${newapiOrgKey}`)
+  .then(res => res.json())
+  .then((json) => {
+    const url = json.articles[0].url
+    fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&url=${url}&sentences=3`, { method: 'POST'})
+    .then(res => res.json())
+    .then((summary) => {
+      console.log("NEWS GENERATION SUCCESSFUL")
+      ctx.reply(json.articles[0].title)
+      ctx.reply(summary.summary)
+      ctx.reply(json.articles[0].url)
+    })
+  })
+})
+
+bot.hears('science', (ctx, req, res) => { 
 fetch(`http://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=${newapiOrgKey}`)
   .then(res => res.json())
   .then((json) => {
@@ -66,7 +98,23 @@ fetch(`http://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=${
   })
 })
 
-bot.hears('covid'||'covidnews',(ctx,req,res)=>{
+bot.hears('Science', (ctx, req, res) => { 
+fetch(`http://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=${newapiOrgKey}`)
+  .then(res => res.json())
+  .then((json) => {
+    const url = json.articles[0].url
+    fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&url=${url}&sentences=3`, { method: 'POST'})
+    .then(res => res.json())
+    .then((summary) => {
+      console.log("NEWS GENERATION SUCCESSFUL")
+      ctx.reply(json.articles[0].title)
+      ctx.reply(summary.summary)
+      ctx.reply(json.articles[0].url)
+    })
+  })
+})
+
+bot.hears('covid',(ctx,req,res)=>{
 fetch(`https://cryptic-ravine-96718.herokuapp.com/`)
 .then(res=>res.json())
 .then((json)=>{
@@ -82,7 +130,7 @@ fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&
   })
 })
 
-bot.hears('COVID' || 'corona',(ctx,req,res)=>{
+bot.hears('covidnews',(ctx,req,res)=>{
 fetch(`https://cryptic-ravine-96718.herokuapp.com/`)
 .then(res=>res.json())
 .then((json)=>{
@@ -98,7 +146,7 @@ fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&
   })
 })
 
-bot.hears('covid19' || 'Coronanews',(ctx,req,res)=>{
+bot.hears('corona',(ctx,req,res)=>{
 fetch(`https://cryptic-ravine-96718.herokuapp.com/`)
 .then(res=>res.json())
 .then((json)=>{
@@ -114,7 +162,55 @@ fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&
   })
 })
 
-bot.hears('covidstats'||'covid19stats',(ctx,req,res)=>{
+bot.hears('COVID',(ctx,req,res)=>{
+fetch(`https://cryptic-ravine-96718.herokuapp.com/`)
+.then(res=>res.json())
+.then((json)=>{
+const url=json.news[1].link
+
+fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&url=${url}&sentences=3`, { method: 'POST'})
+    .then(res => res.json())
+    .then((summary) => {
+      ctx.reply(json.news[1].title)
+      ctx.reply(summary.summary)
+      ctx.reply(json.news[1].link)
+    })
+  })
+})
+
+bot.hears('covid19',(ctx,req,res)=>{
+fetch(`https://cryptic-ravine-96718.herokuapp.com/`)
+.then(res=>res.json())
+.then((json)=>{
+const url=json.news[1].link
+
+fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&url=${url}&sentences=3`, { method: 'POST'})
+    .then(res => res.json())
+    .then((summary) => {
+      ctx.reply(json.news[1].title)
+      ctx.reply(summary.summary)
+      ctx.reply(json.news[1].link)
+    })
+  })
+})
+
+bot.hears('Coronanews',(ctx,req,res)=>{
+fetch(`https://cryptic-ravine-96718.herokuapp.com/`)
+.then(res=>res.json())
+.then((json)=>{
+const url=json.news[1].link
+
+fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&url=${url}&sentences=3`, { method: 'POST'})
+    .then(res => res.json())
+    .then((summary) => {
+      ctx.reply(json.news[1].title)
+      ctx.reply(summary.summary)
+      ctx.reply(json.news[1].link)
+    })
+  })
+})
+
+bot.hears('covidstats',(ctx,req,res)=>{
 fetch(`https://coronavirus-worlddata.herokuapp.com/world`)
 .then(res=>res.json())
 .then((json)=>{
@@ -127,19 +223,48 @@ ctx.reply("Stats API by roshan.py")
   })
 })
 
-bot.hears('hey'||'hello',(ctx)=>{
+bot.hears('covid19stats',(ctx,req,res)=>{
+fetch(`https://coronavirus-worlddata.herokuapp.com/world`)
+.then(res=>res.json())
+.then((json)=>{
+      ctx.reply("Here is the covid19 world stats you have asked for :)")
+      ctx.reply("Active Cases:"+""+json.active)
+ctx.reply("Cured Cases:"+""+json.cured)
+ctx.reply("Deaths Cases:"+""+json.deaths)
+ctx.reply("Total Cases:"+""+json.total)
+ctx.reply("Stats API by roshan.py")
+  })
+})
+
+bot.hears('hey',(ctx)=>{
 ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
 })
 
-bot.hears('hola'||'hi',(ctx)=>{
+bot.hears('Hey',(ctx)=>{
 ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
 })
 
-bot.hears('Hola'||'Hi',(ctx)=>{
+bot.hears('hi',(ctx)=>{
 ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
 })
 
-bot.hears('Hey'||'Hello',(ctx)=>{
+bot.hears('Hi',(ctx)=>{
+ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
+})
+
+bot.hears('Hola',(ctx)=>{
+ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
+})
+
+bot.hears('hola',(ctx)=>{
+ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
+})
+
+bot.hears('Hello',(ctx)=>{
+ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
+})
+
+bot.hears('hello',(ctx)=>{
 ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
 })
 
