@@ -11,7 +11,7 @@ const Telegraf = require('telegraf')
 app.use(bodyParser.json());
 
 const bot = new Telegraf("1239168966:AAFnwpTimA_6DHHo9P6y-z3VIachnu6gKQo")
-bot.start((ctx) => ctx.reply("Hello, I am Aller (crafted by Digvijay & iamharsh.dev). News services have evolved a lot.  It's so boring to sit down and read lengthy news articles. I perform text analysis to deliver crisp news straight to your inbox. Explore and stay updated. 1. Text me 'technology' for tech genre. 2. 'business' for some busines news. 3. and 'science' for some scientific dose. 4.COVID19 for covid19 related news and stats. /help for recieving these guidelines again, anytime."))
+bot.start((ctx) => ctx.reply("Hello, I am Aller (crafted by Digvijay & @iamharshdeb). News services have evolved a lot.  It's so boring to sit down and read lengthy news articles. I perform text analysis to deliver crisp news straight to your inbox. Explore and stay updated. 1. Text me 'technology' for tech genre. 2. 'business' for some busines news. 3. and 'science' for some scientific dose. 4.COVID19 for covid19 related news and stats. /help for recieving these guidelines again, anytime."))
 bot.hears('/help', (ctx) => {
   ctx.reply("Heyya, I think you are stuck somewhere. I perform text analysis to deliver crisp news straight to your inbox. Explore and stay updated. 1. Text me 'technology' for tech genre. 2. 'business' for some busines news. 3. and 'science' for some scientific dose.4.COVID19 for covid19 related news and stats. /help for recieving these guidelines again, anytime. /feedback to give me a feedback. Tweet about any issue, twitter at novadigvijay.")
 })
@@ -121,7 +121,6 @@ fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&
       ctx.reply(json.news[1].title)
       ctx.reply(summary.summary)
       ctx.reply(json.news[1].link)
-ctx.reply("Covid19 News API by @iamharshdeb")
     })
   })
 })
@@ -138,7 +137,6 @@ fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&
       ctx.reply(json.news[1].title)
       ctx.reply(summary.summary)
       ctx.reply(json.news[1].link)
-ctx.reply("Covid19 News API by @iamharshdeb")
     })
   })
 })
@@ -155,7 +153,6 @@ fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&
       ctx.reply(json.news[1].title)
       ctx.reply(summary.summary)
       ctx.reply(json.news[1].link)
-      ctx.reply("Covid19 News API by @iamharshdeb")
     })
   })
 })
