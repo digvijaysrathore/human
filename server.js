@@ -125,7 +125,7 @@ fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&
   })
 })
 
-bot.hears('COVID' || 'Covid19',(ctx,req,res)=>{
+bot.hears('COVID' || 'corona',(ctx,req,res)=>{
 fetch(`https://cryptic-ravine-96718.herokuapp.com/`)
 .then(res=>res.json())
 .then((json)=>{
@@ -141,7 +141,7 @@ fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&
   })
 })
 
-bot.hears('covid19' || 'Covid19',(ctx,req,res)=>{
+bot.hears('covid19' || 'Coronanews',(ctx,req,res)=>{
 fetch(`https://cryptic-ravine-96718.herokuapp.com/`)
 .then(res=>res.json())
 .then((json)=>{
@@ -170,7 +170,11 @@ ctx.reply("Stats API by roshan.py")
   })
 })
 
-bot.hears('hey'||'hello'||'hi',(ctx)=>{
+bot.hears('hey'||'hello',(ctx)=>{
+ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
+})
+
+bot.hears('hola'||'hi',(ctx)=>{
 ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
 })
 
