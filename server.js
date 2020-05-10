@@ -18,7 +18,7 @@ bot.hears('/help', (ctx) => {
 bot.hears('/feedback', (ctx) => {
   ctx.reply("You can give me a feedback by leaving a tweet at novadigvijay (remember: Twitter at novadigvijay). I am waiting for it!")
 })
-bot.hears('technology', (ctx, req, res) => { 
+bot.hears('technology'||'Technology', (ctx, req, res) => { 
   fetch(`http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=${newapiOrgKey}`)
   .then(res => res.json())
   .then((json) => {
@@ -33,22 +33,8 @@ bot.hears('technology', (ctx, req, res) => {
     })
   })
 })
-bot.hears('Technology', (ctx, req, res) => { 
-  fetch(`http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=${newapiOrgKey}`)
-  .then(res => res.json())
-  .then((json) => {
-    const url = json.articles[0].url
-    fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&url=${url}&sentences=3`, { method: 'POST'})
-    .then(res => res.json())
-    .then((summary) => {
-      console.log("NEWS GENERATION SUCCESSFUL")
-      ctx.reply(json.articles[0].title)
-      ctx.reply(summary.summary)
-      ctx.reply(json.articles[0].url)
-    })
-  })
-})
-bot.hears('Business', (ctx, req, res) => { 
+
+bot.hears('Business'||'business', (ctx, req, res) => { 
   fetch(`http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${newapiOrgKey}`)
   .then(res => res.json())
   .then((json) => {
@@ -63,38 +49,9 @@ bot.hears('Business', (ctx, req, res) => {
     })
   })
 })
-bot.hears('business', (ctx, req, res) => { 
-  fetch(`http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${newapiOrgKey}`)
-  .then(res => res.json())
-  .then((json) => {
-    const url = json.articles[0].url
-    fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&url=${url}&sentences=3`, { method: 'POST'})
-    .then(res => res.json())
-    .then((summary) => {
-      console.log("NEWS GENERATION SUCCESSFUL")
-      ctx.reply(json.articles[0].title)
-      ctx.reply(summary.summary)
-      ctx.reply(json.articles[0].url)
-    })
-  })
-})
-bot.hears('science', (ctx, req, res) => { 
-  fetch(`http://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=${newapiOrgKey}`)
-  .then(res => res.json())
-  .then((json) => {
-    const url = json.articles[0].url
-    fetch(`https://api.meaningcloud.com/summarization-1.0?key=${meaningCloudApiKey}&url=${url}&sentences=3`, { method: 'POST'})
-    .then(res => res.json())
-    .then((summary) => {
-      console.log("NEWS GENERATION SUCCESSFUL")
-      ctx.reply(json.articles[0].title)
-      ctx.reply(summary.summary)
-      ctx.reply(json.articles[0].url)
-    })
-  })
-})
-bot.hears('Science', (ctx, req, res) => { 
-  fetch(`http://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=${newapiOrgKey}`)
+
+bot.hears('science'||'Science', (ctx, req, res) => { 
+fetch(`http://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=${newapiOrgKey}`)
   .then(res => res.json())
   .then((json) => {
     const url = json.articles[0].url
@@ -175,6 +132,14 @@ ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i h
 })
 
 bot.hears('hola'||'hi',(ctx)=>{
+ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
+})
+
+bot.hears('Hola'||'Hi',(ctx)=>{
+ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
+})
+
+bot.hears('Hey'||'Hello',(ctx)=>{
 ctx.reply("Hola! How are you. Hope you are doing absolutely fine😊.How may i help you?")
 })
 
